@@ -18,7 +18,7 @@ from django.urls import path
 
 urlpatterns = [
     path(r'', views.home_page, name='home'),
-    path(r'lists/new', views.home_page, name='home'),
+    path(r'lists/new', views.new_list, name='new_list'),
     path(r'lists/the-only-list-in-the-world/',
          views.view_list,
          name='view_list')
