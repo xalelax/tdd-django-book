@@ -1,12 +1,15 @@
-from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import WebDriverException
+
 import time
 
 MAX_WAIT = 3
 
-class NewVisitorTest(LiveServerTestCase):
+
+class NewVisitorTest(StaticLiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()
 
@@ -108,7 +111,7 @@ class NewVisitorTest(LiveServerTestCase):
     def test_layout_and_styling(self):
         # Edith goes to the home page
         self.browser.get(self.live_server_url)
-        self.browser.set_window_size(1024,768)
+        self.browser.set_window_size(1024, 768)
 
         # She notices the input box is nicely centered
         inputbox = self.browser.find_element_by_id('id_new_item')
